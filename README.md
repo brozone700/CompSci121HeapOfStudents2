@@ -33,11 +33,11 @@ classDiagram
         -Date expectedGradDate
         -int creditHours
         +Student()
-        +Student(string firstName, string lastName, Address address, Date birthdate, Date expectedGradDate, int creditHours)
         +init(string firstName, string lastName, Address address, Date birthdate, Date expectedGradDate, int creditHours) void
         +init(string csvLine) void
         +printStudent() void
         +getLastFirst() string
+        +getLastName() string
     }
 
     Student *-- "1" Address : address

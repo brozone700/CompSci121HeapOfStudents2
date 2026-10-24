@@ -8,10 +8,6 @@ Student::Student(){
     creditHours = 0;
 }
 
-Student::Student(string firstName, string lastName, Address address, Date birthdate, Date expectedGradDate, int creditHours){
-    init(firstName, lastName, address, birthdate, expectedGradDate, creditHours);
-}
-
 void Student::init(string firstName, string lastName, Address address, Date birthdate, Date expectedGradDate, int creditHours){
     Student::firstName = firstName;
     Student::lastName = lastName;
@@ -36,7 +32,7 @@ void Student::init(string csvLine){
     }
 
     fields[8] = csvLine.substr(start);
-    
+
     firstName = fields[0];
     lastName = fields[1];
     address.init(fields[2], fields[3], fields[4], fields[5]);
@@ -48,14 +44,20 @@ void Student::init(string csvLine){
 void Student::printStudent(){
     cout << firstName << " " << lastName << endl;
     address.printAddress();
-    cout << "Born: ";
+    cout << "DOB: ";
     birthdate.printLong();
     cout << endl;
-    cout << "Expected graduation: ";
-    expectedGradDate.printDate();
-    cout << "Credit hours: " << creditHours << endl;
+    cout << "Grad: ";
+    expectedGradDate.printLong();
+    cout << endl;
+    cout << "Credits: " << creditHours << endl;
+    cout << "____________________________________\n" << endl;
 }
 
 string Student::getLastFirst(){
     return lastName + ", " + firstName;
+}
+
+string Student::getLastName(){
+    return lastName;
 }
